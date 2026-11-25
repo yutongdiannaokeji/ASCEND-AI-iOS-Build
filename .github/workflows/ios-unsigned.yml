@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ascend-ios-release
+  group: ascend-ios-arm-retry
   cancel-in-progress: false
 
 jobs:
