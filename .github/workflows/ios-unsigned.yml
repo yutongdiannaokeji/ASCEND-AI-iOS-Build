@@ -2,6 +2,15 @@ name: ASCEND AI unsigned iOS archive
 
 on:
   workflow_dispatch:
+    inputs:
+      runner:
+        description: Standard GitHub-hosted macOS runner
+        type: choice
+        required: true
+        options:
+          - macos-26-intel
+          - macos-26
+        default: macos-26-intel
 
 permissions:
   contents: read
@@ -13,7 +22,7 @@ concurrency:
 jobs:
   archive:
     name: Compile for iPhone and iPad
-    runs-on: macos-26
+    runs-on: ${{ inputs.runner }}
     timeout-minutes: 60
     env:
       CI: '1'
